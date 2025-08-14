@@ -1,0 +1,156 @@
+/* -------------------------------------------------
+   Tailwind base styles
+   ------------------------------------------------- */
+@import "tailwindcss";
+
+/* -------------------------------------------------
+   Root Variables: Typography & Color Palette
+   ------------------------------------------------- */
+:root {
+  /* Typography */
+  --main-font: "Karla", sans-serif;
+
+  /* Primary Colors */
+  --green-200: hsl(148, 38%, 91%);
+  --green-600: hsl(169, 82%, 27%);
+  --red: hsl(0, 66%, 54%);
+
+  /* Neutral Colors */
+  --white: hsl(0, 0%, 100%);
+  --grey-500: hsl(186, 15%, 59%);
+  --grey-900: hsl(187, 24%, 22%);
+}
+
+/* -------------------------------------------------
+   Form Input Sections
+   ------------------------------------------------- */
+.fieldset__input-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 8px;
+  /* Space between label and input */
+  align-self: stretch;
+}
+
+.fieldset__input-section span {
+  color: var(--green-600);
+  /* Highlight required field asterisk */
+}
+
+.fieldset__input-section input,
+.query-group,
+textarea {
+  border: 0.0625rem solid black;
+  border-radius: 0.375rem;
+  /* Rounded corners */
+  padding-block: 0.625rem;
+  /* Vertical padding */
+  padding-inline: 1.5rem;
+  /* Horizontal padding */
+}
+
+/* Focus styles for inputs & textareas */
+:is(input, textarea):is(:focus, :focus-visible, :focus-within) {
+  border-color: var(--green-600);
+  outline: 0;
+  /* Remove default focus outline */
+}
+
+/* -------------------------------------------------
+   Radio Button Groups (Query Type)
+   ------------------------------------------------- */
+.query-group {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  /* Space between radio and label */
+}
+
+/* Custom radio button styles */
+.query-group input {
+  appearance: none;
+  /* Remove default radio look */
+  width: 0.625rem;
+  height: 0.625rem;
+  outline: 2px solid #D6DAD9;
+  outline-offset: 3px;
+  border-radius: 50%;
+  /* Circular radio button */
+  cursor: pointer;
+}
+
+/* Radio when selected */
+.query-group input:checked {
+  background: var(--green-600);
+  outline-color: var(--green-600);
+}
+
+/* Highlight the group when radio is checked */
+.query-group:has(input:checked) {
+  border-color: var(--green-600);
+  background-color: var(--green-200);
+}
+
+/* Highlight on focus */
+.query-group:is(:focus, :focus-visible, :focus-within) {
+  border-color: var(--green-600);
+  outline: 0;
+}
+
+/* -------------------------------------------------
+   Responsive Layout (min-width: 64rem / 1024px)
+   ------------------------------------------------- */
+@media (min-width: 64rem) {
+
+  .fieldset__input-section,
+  .query-group {
+    align-self: stretch;
+    max-width: 19.875rem;
+    /* Limit width for better alignment */
+  }
+}
+
+/* -------------------------------------------------
+   Fieldset & Legend
+   ------------------------------------------------- */
+fieldset {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 1rem;
+  /* Space between radio groups */
+}
+
+legend {
+  margin-bottom: 0.5rem;
+}
+
+/* -------------------------------------------------
+   Error States
+   ------------------------------------------------- */
+.form-error-container {
+  border: 0.0625rem solid var(--red) !important;
+}
+
+.radio-error {
+  border: 0 !important;
+  /* Remove border for radio error state */
+}
+
+/* -------------------------------------------------
+   Terms & Conditions Section
+   ------------------------------------------------- */
+.form__terms:is(:focus, :focus-visible, :focus-within) {
+  color: var(--green-600);
+  outline: 0;
+}
+
+/* -------------------------------------------------
+   Checkbox Styles
+   ------------------------------------------------- */
+input[type="checkbox"] {
+  accent-color: var(--green-600);
+  /* Modern browser checkbox color */
+}

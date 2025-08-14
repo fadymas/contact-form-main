@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!-- Declares the document type and HTML version (HTML5) -->
+<html lang="en">
+  <!-- Sets the language of the document to English -->
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Sets character encoding to UTF-8 for wide character support -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ensures responsive design on all devices -->
+
+    <!-- Favicon for browser tab -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+
+    <!-- Preconnect to Google Fonts for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Google Fonts: Karla family -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Minified CSS file -->
+    <link rel="stylesheet" href="dist/style.min.css" />
+
+    <!-- JustValidate library for form validation -->
+    <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
+
+    <!-- Main JavaScript file (loaded after HTML parsing) -->
+    <script src="dist/main.js" defer></script>
+
+    <title>Frontend Mentor | Contact form</title>
+    <!-- Page title -->
+  </head>
+
+  <body
+    class="min-h-screen place-content-center place-items-center bg-[var(--green-200)] font-[family-name:var(--main-font)]"
+  >
+    <!-- Main content container -->
+    <main
+      class="bg-[var(--white)] rounded-xl max-[23.5rem]:w-[21.4375rem] container lg:max-w-183 p-6 lg:p-10"
+    >
+      <!-- Page heading -->
+      <h1 class="font-bold text-3xl mb-7" aria-label="Contact Us" tabindex="0">
+        Contact Us
+      </h1>
+
+      <!-- Contact form -->
+      <form action="./index.html" method="get" class="flex flex-wrap border-0 gap-4" id="form">
+        <!-- First name field -->
+        <section class="fieldset__input-section">
+          <label for="first-name">First Name <span>*</span></label>
+          <input
+            type="text"
+            name="first-name"
+            id="first-name"
+            required
+            autocomplete="first-name"
+          />
+        </section>
+
+        <!-- Last name field -->
+        <section class="fieldset__input-section">
+          <label for="last-name">Last Name <span>*</span></label>
+          <input
+            type="text"
+            name="last-name"
+            id="last-name"
+            required
+            autocomplete="last-name"
+          />
+        </section>
+
+        <!-- Email address field -->
+        <section class="fieldset__input-section lg:max-w-[100%_!important]">
+          <label for="email">Email Address <span>*</span></label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            required
+            autocomplete="email"
+          />
+        </section>
+
+        <!-- Query type radio buttons -->
+        <fieldset>
+          <legend>
+            Query Type <span class="text-[var(--green-600)]">*</span>
+          </legend>
+
+          <!-- General enquiry option -->
+          <div class="query-group" tabindex="0" aria-label="General Enquiry">
+            <input
+              type="radio"
+              id="General-Enquiry"
+              name="query"
+              value="General-Enquiry"
+            />
+            <label for="General-Enquiry">General Enquiry</label>
+          </div>
+
+          <!-- Support request option -->
+          <div class="query-group" tabindex="0" aria-label="Support Request">
+            <input
+              type="radio"
+              id="Support-Request"
+              name="query"
+              value="Support-Request"
+            />
+            <label for="Support-Request">Support Request</label>
+          </div>
+        </fieldset>
+
+        <!-- Message textarea -->
+        <section class="fieldset__input-section lg:max-w-[100%_!important]">
+          <label for="message">Message <span>*</span></label>
+          <textarea name="message" id="message" rows="4" required></textarea>
+        </section>
+
+        <!-- Terms and conditions checkbox -->
+        <section
+          class="form__terms flex flex-wrap items-center gap-5 mt-6.5 leading-6"
+          tabindex="0"
+          aria-label="Terms and Conditions"
+        >
+          <input
+            type="checkbox"
+            name="terms"
+            id="terms"
+            required
+            class="w-5.5 h-4.5"
+            tabindex="-1"
+          />
+          <label for="terms" class="max-w-60 sm:max-w-full">
+            I consent to being contacted by the team
+            <span class="text-[var(--green-600)]">*</span>
+          </label>
+        </section>
+
+        <!-- Submit button -->
+        <button
+          type="submit"
+          class="text-white text-lg font-bold w-full px-2.5 py-4 mt-6.5 bg-[var(--green-600)] rounded-md hover:bg-[var(--grey-900)] focus-within:bg-[var(--grey-900)] focus:bg-[var(--grey-900)] focus-visible:bg-[var(--grey-900)] outline-0"
+        >
+          Submit
+        </button>
+      </form>
+    </main>
+
+    <!-- Success dialog message -->
+    <dialog
+      aria-haspopup="false"
+      role="dialog"
+      aria-labelledby="alert-title"
+      class="alert fixed flex flex-col gap-[.6875rem] -top-25 left-1/2 translate-x-[-50%] pl-6 pr-5.5 pt-6.5 pb-6 min-h-27 max-w-112.5 w-[80vw] bg-[var(--grey-900)] text-[var(--white)] rounded-[.625rem] opacity-0 transition-all duration-600 ease-in-out"
+    >
+      <h2 class="text-lg font-bold" id="alert-title" aria-label="Message Sent">
+        <img
+          src="./assets/images/icon-success-check.svg"
+          alt=""
+          role="presentation"
+          class="inline-block mr-2.5"
+        />Message Sent!
+      </h2>
+      <p class="text-[var(--grey-500)]">
+        Thanks for completing the form, we'll be in touch soon!
+      </p>
+    </dialog>
+  </body>
+</html>
